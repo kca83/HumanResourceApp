@@ -21,14 +21,15 @@ public class ReportingMenu extends Menu{
                 printAllProspects();
                 break;
             case EMPLOYEE:
-                //something
+                printAllEmployees();
                 break;
             case ALL:
-                //something
+                printAllEmployees();
+                System.out.println();
+                printAllProspects();
                 break;
             case HOME:
-                //go back up somehow
-                break;
+                return;
             case EXIT:
                 System.exit(0);
                 return;
@@ -39,6 +40,7 @@ public class ReportingMenu extends Menu{
         ArrayList<Person> allProspects = personWarehouse.getAllProspects();
 
         if(allProspects.size() > 0) {
+            System.out.println("PROSPECTS:");
             String report = Person.printProspectReportHeader();
             for (Person prospect : allProspects) {
                 report += "\n" + prospect.printProspectForReport();
@@ -48,6 +50,23 @@ public class ReportingMenu extends Menu{
         }
         else {
             System.out.println("No prospects available to report");
+        }
+    }
+
+    public void printAllEmployees() {
+        ArrayList<Person> allEmployees = personWarehouse.getAllEmployees();
+
+        if(allEmployees.size() > 0) {
+            System.out.println("EMPLOYEES:");
+            String report = Person.printEmployeeReportHeader();
+            for (Person prospect : allEmployees) {
+                report += "\n" + prospect.printEmployeeForReport();
+            }
+
+            System.out.println(report);
+        }
+        else {
+            System.out.println("No employees available to report");
         }
     }
 }
