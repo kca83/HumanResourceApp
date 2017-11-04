@@ -1,5 +1,9 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
+import io.zipcoder.threedaystodeliver.humanresourceapp.Person;
+
+import java.util.ArrayList;
+
 public class ReportingMenu extends Menu{
 
     enum ReportingSelectionOptions {ALL, PROSPECT, EMPLOYEE, HOME, EXIT}
@@ -14,7 +18,7 @@ public class ReportingMenu extends Menu{
     public void selectOption(String userInput) {
         switch (ReportingSelectionOptions.valueOf(userInput)){
             case PROSPECT:
-                //something
+                printAllProspects();
                 break;
             case EMPLOYEE:
                 //something
@@ -31,19 +35,19 @@ public class ReportingMenu extends Menu{
         }
     }
 
-//    private void prospectMenu() {
-//        ProspectMenu prospectMenu = new ProspectMenu();
-//        prospectMenu.display();
-//    }
-//
-//    private void employeeMenu() {
-//        EmployeeMenu employeeMenu = new EmployeeMenu();
-//        employeeMenu.display();
-//    }
-//
-//    private void reportingMenu() {
-//        ReportingMenu reportingMenu = new ReportingMenu();
-//        reportingMenu.display();
-//    }
+    public void printAllProspects() {
+        ArrayList<Person> allProspects = personWarehouse.getAllProspects();
 
+        if(allProspects.size() > 0) {
+            String report = Person.printProspectReportHeader();
+            for (Person prospect : allProspects) {
+                report += "\n" + prospect.printProspectForReport();
+            }
+
+            System.out.println(report);
+        }
+        else {
+            System.out.println("No prospects available to report");
+        }
+    }
 }

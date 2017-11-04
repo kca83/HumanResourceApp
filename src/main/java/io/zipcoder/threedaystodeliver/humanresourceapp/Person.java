@@ -2,6 +2,7 @@ package io.zipcoder.threedaystodeliver.humanresourceapp;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Person {
 
@@ -54,6 +55,20 @@ public class Person {
 
         return (returnMe);
 
+    }
+
+    public static String printProspectReportHeader() {
+        String report = String.format("%-20s| %-10s| %-10s| %-30s| %-15s", "Name", "ID", "Score", "Resume", "Interview Date");
+        char[] chars = new char[93];
+        Arrays.fill(chars, '_');
+        String line = new String(chars);
+        report += "\n" + line;
+        return report;
+    }
+
+    public String printProspectForReport() {
+        String report = String.format("%-20s| %-10s| %-10s| %-30s| %-15s", getContactInfo().getName(), getId(), getScore(), getResume(), getInterviewDate());
+        return report;
     }
 
     public void setTitle(String title){
