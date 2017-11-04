@@ -9,8 +9,7 @@ import static io.zipcoder.threedaystodeliver.humanresourceapp.Compensation.compe
 import static io.zipcoder.threedaystodeliver.humanresourceapp.Compensation.compensationType.Monthly;
 import static io.zipcoder.threedaystodeliver.humanresourceapp.Compensation.compensationType.Project;
 
-public class SanitizeTools
-{
+public class SanitizeTools {
     public static LocalDate getEnforcedLocalDateInput(){
         Scanner in = new Scanner(System.in);
         LocalDate localDateInput;
@@ -35,19 +34,28 @@ public class SanitizeTools
         return (true);
     }
 
-    public static double getEnforcedDoubleInput(){
+    public static double getEnforcedPositiveDoubleInput(){
         Scanner in = new Scanner(System.in);
         double dInput;
         String sInput;
         do {
             sInput = in.nextLine();
-            if (!isInputDouble(sInput)) {
-                System.out.println("Please enter a decimal number.");
+            if (!isInputDouble(sInput)||(Double.valueOf(sInput)<0)) {
+                System.out.println("Please enter a decimal number greater than 0.");
             }
-        }while (!isInputDouble(sInput));
+        }while (!isInputDouble(sInput)||(Double.valueOf(sInput)<0));
         dInput=Double.valueOf(sInput);
         return dInput;
     }
+
+   /* public static double getEnforcedPositiveInput(double doubleIn){
+        do {
+            if(doubleIn < 0){
+                System.out.println("Please enter a value greater than or equal to zero.");
+            }while (doubleIn < 0);
+        }
+        return doubleIn;
+    }*/
 
     private static boolean isInputDouble(String passedString)
     {

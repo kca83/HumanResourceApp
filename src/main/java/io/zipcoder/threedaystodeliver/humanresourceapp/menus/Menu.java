@@ -2,13 +2,11 @@ package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
 import io.zipcoder.threedaystodeliver.humanresourceapp.*;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import static io.zipcoder.threedaystodeliver.humanresourceapp.menus.SanitizeTools.getEnforcedCompensationType;
-import static io.zipcoder.threedaystodeliver.humanresourceapp.menus.SanitizeTools.getEnforcedDoubleInput;
+import static io.zipcoder.threedaystodeliver.humanresourceapp.menus.SanitizeTools.getEnforcedPositiveDoubleInput;
 
 /**
  * Created by leon on 10/24/17.
@@ -145,11 +143,11 @@ public abstract class Menu {
         System.out.println("Enter paid Monthly/Hourly/Project: ");
         Compensation.compensationType inputPayType = getEnforcedCompensationType();
         System.out.print("Enter salary: ");
-        double inputSalary = getEnforcedDoubleInput();
+        double inputSalary = getEnforcedPositiveDoubleInput();
         System.out.print("Enter bonus: ");
-        double inputBonus = getEnforcedDoubleInput();
+        double inputBonus = getEnforcedPositiveDoubleInput();
         System.out.print("Enter PTO for the year: ");
-        double inputPTO = getEnforcedDoubleInput();
+        double inputPTO = getEnforcedPositiveDoubleInput();
         System.out.print("Opt in to medical coverage? y/n: ");
         String inputMedical = getUserInput();
         System.out.print("Opt in to dental coverage? y/n: ");
@@ -159,7 +157,7 @@ public abstract class Menu {
         System.out.print("Opt in to prescription coverage? y/n: ");
         String inputPrescription = getUserInput();
         System.out.print("Enter retirement match %: ");
-        double inputRetirementMatch = getEnforcedDoubleInput();
+        double inputRetirementMatch = getEnforcedPositiveDoubleInput();
 
         Compensation newCompensation = new Compensation();
         newCompensation.setTypeAndAmount(inputPayType, inputSalary);

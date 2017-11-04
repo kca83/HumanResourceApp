@@ -4,7 +4,7 @@ import io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import io.zipcoder.threedaystodeliver.humanresourceapp.menus.SanitizeTools;
+
 import io.zipcoder.threedaystodeliver.humanresourceapp.Person;
 import io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler;
 
@@ -86,7 +86,7 @@ public class EmployeeMenu extends Menu{
             switch(input) {
                 case "score":
                     System.out.println("Please enter new score.");
-                    Double newScore = SanitizeTools.getEnforcedDoubleInput();
+                    Double newScore = SanitizeTools.getEnforcedPositiveDoubleInput();
                     currentPerson.setScore(newScore);
                     System.out.println("The new score is ["+currentPerson.getScore()+"].");
                     break;
@@ -204,7 +204,7 @@ public class EmployeeMenu extends Menu{
         String input = this.getUserInput();
         if(!"skip".equalsIgnoreCase(input)) {
             System.out.println("Please enter score:");
-            Double score = SanitizeTools.getEnforcedDoubleInput();
+            Double score = SanitizeTools.getEnforcedPositiveDoubleInput();
             currentPerson.setScore(score);
         } else {
             System.out.println("Score update skipped.");

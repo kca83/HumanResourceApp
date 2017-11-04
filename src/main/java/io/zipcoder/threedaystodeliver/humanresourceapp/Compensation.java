@@ -51,8 +51,6 @@ public class Compensation {
 
     public void setUsePTO(double amount) {
         this.ptoUsed = amount;
-
-
     }
 
     public double getUsePTO() {
@@ -71,7 +69,6 @@ public class Compensation {
     }
 
     public double getPTOUsedThisYear() {
-
         return ptoUsed;
     }
 
