@@ -41,12 +41,11 @@ public class Person {
                 "Termination Date:  " + terminationDate + "\n" +
                 "Reason For Termination:  " + reasonForTermination + "\n" +
                 "Exit Interview Notes:  " + exitInterview + "\n" +
-                "Employee Score:  " + score + "\n\n" +
-                contactInfo.getName()+"'s Compensation:\n";
+                "Employee Score:  " + score + "\n\n";
 
         if (compensation!=null)
         {
-            returnMe+= (compensation.toString() + "\n\n");
+            returnMe+= (contactInfo.getName()+"'s Compensation:\n" + compensation.toString() + "\n\n");
         }
         else
         {
@@ -68,6 +67,20 @@ public class Person {
 
     public String printProspectForReport() {
         String report = String.format("%-20s| %-10s| %-10s| %-30s| %-15s", getContactInfo().getName(), getId(), getScore(), getResume(), getInterviewDate());
+        return report;
+    }
+
+    public static String printEmployeeReportHeader() {
+        String report = String.format("%-20s| %-10s| %-20s| %-11s| %-23s| %-15s", "Name", "ID", "Job Title", "Salary", "Monthly/Hourly/Project", "Date Hired");
+        char[] chars = new char[109];
+        Arrays.fill(chars, '_');
+        String line = new String(chars);
+        report += "\n" + line;
+        return report;
+    }
+
+    public String printEmployeeForReport() {
+        String report = String.format("%-20s| %-10s| %-20s| $%-10.2f| %-23s| %-15s", getContactInfo().getName(), getId(), getTitle(), getCompensation().getPayrate(), getCompensation().getCompensationType(), getHiredDate());
         return report;
     }
 
