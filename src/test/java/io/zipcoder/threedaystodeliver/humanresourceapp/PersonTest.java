@@ -150,4 +150,26 @@ public class PersonTest {
 //    }
 //
 //
+
+    @Test
+    public void printProspectReportHeaderTest() {
+        String expected = "Name                | ID        | Score     | Resume                        | Interview Date \n_____________________________________________________________________________________________";
+        String actual = Person.printProspectReportHeader();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void printProspectForReportTest() {
+        Person testPerson = new Person();
+        testPerson.getContactInfo().setName("Katherine Anderson");
+        testPerson.setId("00001");
+        testPerson.setScore(80);
+        testPerson.setResume("Does good work");
+        LocalDate testDate = LocalDate.parse("2017-11-04");
+        testPerson.setInterviewDate(testDate);
+
+        String expected = "Katherine Anderson  | 00001     | 80.0      | Does good work                | 2017-11-04     ";
+        String actual = testPerson.printProspectForReport();
+        Assert.assertEquals(expected, actual);
+    }
 }
