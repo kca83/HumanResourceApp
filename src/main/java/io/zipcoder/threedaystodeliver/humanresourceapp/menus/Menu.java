@@ -142,7 +142,7 @@ public abstract class Menu {
     protected Compensation changeCompensation() {
         System.out.println("Enter paid Monthly/Hourly/Project: ");
         Compensation.compensationType inputPayType = getEnforcedCompensationType();
-        System.out.print("Enter salary: ");
+        System.out.print("Enter payment per applicable period: ");
         double inputSalary = getEnforcedPositiveDoubleInput();
         System.out.print("Enter bonus: ");
         double inputBonus = getEnforcedPositiveDoubleInput();
