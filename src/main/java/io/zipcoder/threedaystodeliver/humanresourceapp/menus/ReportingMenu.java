@@ -1,6 +1,9 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp.menus;
 
+import io.zipcoder.threedaystodeliver.humanresourceapp.IncidentReport;
+import io.zipcoder.threedaystodeliver.humanresourceapp.IncidentReportWarehouse;
 import io.zipcoder.threedaystodeliver.humanresourceapp.Person;
+import static io.zipcoder.threedaystodeliver.humanresourceapp.menus.SanitizeTools.getEnforcedIncidentCategory;
 
 import java.util.ArrayList;
 
@@ -94,10 +97,54 @@ public class ReportingMenu extends Menu{
     private void addNewIncident() {
         System.out.println("Please enter the category of incident:");
         System.out.println("[ TYPE1 ] [ TYPE2 ] [ TYPE3 ] [ TYPE4 ]");
+        IncidentReport.IncidentCategory inputCategory = getEnforcedIncidentCategory();
 
+        System.out.println("Please enter a description of the incident:");
+        String inputDescription = getUserInput();
+
+        IncidentReport newIncidentReport = new IncidentReport(inputCategory, inputDescription);
+
+        String isPersonInvolved;
+        Person personInvolved;
+        do {
+            System.out.println("Add person involved? [Y] [N]");
+            isPersonInvolved = getUserInput();
+            if("y".equalsIgnoreCase(isPersonInvolved)) {
+                String input;
+                do {
+                    System.out.println("Add by [ID] or [Name]?");
+                    input = this.getUserInput();
+                } while (!"ID".equalsIgnoreCase(input) && !"Name".equalsIgnoreCase(input));
+
+                if ("ID".equalsIgnoreCase(input)){
+                    personInvolved=getPersonById();
+                }
+                else{
+                    personInvolved=getPersonByName();
+                }
+
+                if(!newIncidentReport.getPersonsInvolved().contains(personInvolved)) {
+                    newIncidentReport.addPersonToIncidentReport(personInvolved);
+                }
+                else {
+                    System.out.println(personInvolved.getContactInfo().getName() + " already added to incident.");
+                }
+            }
+        } while ("y".equalsIgnoreCase(isPersonInvolved));
     }
 
     private void printAllIncidents() {
+        ArrayList<IncidentReport> allIncidents = IncidentReportWarehouse.getAllIncidents();
 
+        if(allIncidents.size() > 0) {
+            System.out.println("Incidents:");
+            for(int i = 0; i < allIncidents.size(); i++) {
+                System.out.println(allIncidents.get(i).printIncidentForReport());
+                System.out.println("==========");
+            }
+        }
+        else {
+            System.out.println("No incidents available to report");
+        }
     }
 }
