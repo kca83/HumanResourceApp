@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class ReportingMenu extends Menu{
 
-    enum ReportingSelectionOptions {ALL, PROSPECT, EMPLOYEE, HOME, EXIT}
+    enum ReportingSelectionOptions {ALL, PROSPECT, EMPLOYEE, INCIDENTS, HOME, EXIT}
 
     public static final ReportingMenu INSTANCE = new ReportingMenu();
 
@@ -28,6 +28,8 @@ public class ReportingMenu extends Menu{
                 System.out.println();
                 printAllProspects();
                 break;
+            case INCIDENTS:
+                addOrViewAllIncidents();
             case HOME:
                 return;
             case EXIT:
@@ -68,5 +70,34 @@ public class ReportingMenu extends Menu{
         else {
             System.out.println("No employees available to report");
         }
+    }
+
+    private void addOrViewAllIncidents() {
+        String input;
+        do {
+            System.out.println("===== Incident Reporting =====");
+            System.out.println("[ ADD ] [ VIEWALL ] [ BACK ]");
+            input = this.getUserInput().toLowerCase();
+            switch (input) {
+                case "add":
+                    addNewIncident();
+                    break;
+                case "viewall":
+                    printAllIncidents();
+                    break;
+                case "back":
+                    return;
+            }
+        }while (!"back".equalsIgnoreCase(input));
+    }
+
+    private void addNewIncident() {
+        System.out.println("Please enter the category of incident:");
+        System.out.println("[ TYPE1 ] [ TYPE2 ] [ TYPE3 ] [ TYPE4 ]");
+
+    }
+
+    private void printAllIncidents() {
+
     }
 }
