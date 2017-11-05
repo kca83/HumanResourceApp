@@ -40,11 +40,11 @@ public abstract class Menu {
     }
 
     protected void handleIllegalArgumentException(String illegalArgument, IllegalArgumentException iae) {
-        handleException("[ %s ] is an invalid argument.", illegalArgument);
+        handleException("[ %s ] is an invalid argument.\n", illegalArgument);
     }
 
     protected void handleNullPointerException(NullPointerException npe) {
-        handleException("Unable to retrieve data with input value.");
+        handleException("Unable to retrieve data with input value.\n");
     }
 
     private void handleException(String message, Object... args) {
