@@ -123,7 +123,7 @@ public class ReportingMenu extends Menu{
                     personInvolved=getPersonByName();
                 }
 
-                if(!newIncidentReport.getPersonsInvolved().contains(personInvolved)) {
+                if(newIncidentReport.getPersonsInvolved().size() == 0 || !newIncidentReport.getPersonsInvolved().contains(personInvolved)) {
                     newIncidentReport.addPersonToIncidentReport(personInvolved);
                 }
                 else {
