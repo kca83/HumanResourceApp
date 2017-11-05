@@ -61,8 +61,8 @@ public class ReportingMenu extends Menu{
         if(allEmployees.size() > 0) {
             System.out.println("EMPLOYEES:");
             String report = Person.printEmployeeReportHeader();
-            for (Person prospect : allEmployees) {
-                report += "\n" + prospect.printEmployeeForReport();
+            for (Person employee : allEmployees) {
+                report += "\n" + employee.printEmployeeForReport();
             }
 
             System.out.println(report);

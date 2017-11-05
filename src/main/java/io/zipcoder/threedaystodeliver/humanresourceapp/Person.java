@@ -66,7 +66,7 @@ public class Person {
     }
 
     public String printProspectForReport() {
-        String report = String.format("%-20s| %-10s| %-10s| %-30s| %-15s", getContactInfo().getName(), getId(), getScore(), getResume(), getInterviewDate());
+        String report = String.format("%-20s| %-10s| %-10.2f| %-30s| %-15s", getContactInfo().getName(), getId(), getScore(), getResume(), getInterviewDate());
         return report;
     }
 
