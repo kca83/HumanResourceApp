@@ -64,6 +64,11 @@ public class RandomUtilsHR {
         HrContactInfo info = new HrContactInfo(name, address, phone, email);
         Person randomPerson = PersonFactory.createPerson(info);
         randomPerson.setEmploymentStatus(EmploymentStatus.values()[createInteger(0, EmploymentStatus.values().length)]);
+        if (EmploymentStatus.PROSPECT == randomPerson.getEmploymentStatus()){
+            randomPerson.setScore(createFloat(0, 100));
+            randomPerson.setResume(createString('a','z', 20));
+            randomPerson.setInterviewDate(LocalDate.of(createInteger(1500, 2500), createInteger(1, 12), createInteger(1, 28)));
+        }
         if (EmploymentStatus.EMPLOYEE == randomPerson.getEmploymentStatus()) {
             randomPerson.setTitle(createString('A', 'Z', 10));
             Compensation comp = new Compensation();
