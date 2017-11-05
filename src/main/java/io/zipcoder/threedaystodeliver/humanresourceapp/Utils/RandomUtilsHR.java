@@ -1,11 +1,13 @@
 package io.zipcoder.threedaystodeliver.humanresourceapp.Utils;
 
+import io.zipcoder.threedaystodeliver.humanresourceapp.Compensation;
 import io.zipcoder.threedaystodeliver.humanresourceapp.EmploymentStatus;
 import io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo;
 import io.zipcoder.threedaystodeliver.humanresourceapp.Person;
 import io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory;
 import io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress;
 
+import java.time.LocalDate;
 import java.util.Random;
 
 public class RandomUtilsHR {
@@ -47,21 +49,28 @@ public class RandomUtilsHR {
         return id;
     }
 
-    public static void createPerson(){
+    public static void createPerson() {
         //take name
         //random employment type
         //random addresses
-        String name =  Names.nameList[createInteger(0, Names.nameList.length)];
-        StreetAddress address = new StreetAddress((createInteger(100, 99999)+" "+createString('a','z',10)),
-                createString('a','z',10),
-                createString('a','z',10),
-                createString('a','z',10),
+        String name = Names.nameList[createInteger(0, Names.nameList.length)];
+        StreetAddress address = new StreetAddress((createInteger(100, 99999) + " " + createString('a', 'z', 10)),
+                createString('a', 'z', 10),
+                createString('a', 'z', 10),
+                createString('a', 'z', 10),
                 (createInteger(10000, 99999)).toString());
         String phone = createString('0', '9', 10);
         String email = name + "@" + "ranchycorp.com";
         HrContactInfo info = new HrContactInfo(name, address, phone, email);
         Person randomPerson = PersonFactory.createPerson(info);
         randomPerson.setEmploymentStatus(EmploymentStatus.values()[createInteger(0, EmploymentStatus.values().length)]);
+        if (EmploymentStatus.EMPLOYEE == randomPerson.getEmploymentStatus()) {
+            randomPerson.setTitle(createString('A', 'Z', 10));
+            Compensation comp = new Compensation();
+            randomPerson.setCompensation(comp);
+            randomPerson.getCompensation().setPayrate((double) createFloat(200, 2000000));
+            randomPerson.getCompensation().setCompensationType(Compensation.compensationType.values()[createInteger(0, Compensation.compensationType.values().length)]);
+            randomPerson.setHiredDate(LocalDate.of(createInteger(1500, 2500), createInteger(1, 12), createInteger(1, 28)));
+        }
     }
-
 }
