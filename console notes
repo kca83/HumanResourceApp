@@ -1,0 +1,36 @@
+a bugz life.
+
+ticket 0- I'd say "type your selection to continue"... "select" makes me think i should be able to click:)
+
+ticket 1- "Update" menu assumes one knows the field names... to update compensation you need to do the
+entire set of fields. if you put in an invalid entry, the entire update fails
+
+ticket 2- in the flow of the application (having just entered a ton of stuff)when prompted to update
+score, my inclination is to enter a score. needing to key in "Add" first is inconsist.
+"Enter phone number: g
+Enter email address: g
+New employee, g, added with ID: 00000.
+Please add resume. Enter [Skip] to add one later.
+g
+Resume added
+Please update employee score. Enter [Add] to do so now or [Skip] to do so later."
+
+
+ticket 3- employee record return should have field names:
+===== ProspectMenu =====
+Select option:
+[ ADD ] [ UPDATE ] [ CLEAR ] [ HOME ] [ EXIT ]
+update
+Pick [back] to return to the prospect menu.
+Selected:
+eeee
+ee
+ee
+ee
+ee
+ee ee, ee
+
+Employee ID:  00002
+Title:
+Employment Status:  PROSPECT
+Entrance Interview Date:  null

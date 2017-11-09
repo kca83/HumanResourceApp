@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>io.zipcoder.threedaystodeliver.humanresourceapp</OriginalElement>
+  <nodes>
+    <node x="0.0" y="1340.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonTest</node>
+    <node x="0.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.Compensation</node>
+    <node x="0.0" y="934.0">io.zipcoder.threedaystodeliver.humanresourceapp.HrContactInfo</node>
+    <node x="443.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.Person</node>
+    <node x="941.0" y="934.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonWarehouse</node>
+    <node x="847.0" y="0.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandlerTest</node>
+    <node x="438.0" y="934.0">io.zipcoder.threedaystodeliver.humanresourceapp.StreetAddress</node>
+    <node x="0.0" y="1590.0">io.zipcoder.threedaystodeliver.humanresourceapp.IncidentReport</node>
+    <node x="392.2835943940644" y="1593.1059356966198">io.zipcoder.threedaystodeliver.humanresourceapp.IncidentReportWarehouse</node>
+    <node x="382.0" y="1340.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonFactory</node>
+    <node x="721.0" y="1340.0">io.zipcoder.threedaystodeliver.humanresourceapp.PersonHandler</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0993957703927493" x="843.3544929925804" y="1590.140423193185" />
+  <SelectedNodes>
+    <node>io.zipcoder.threedaystodeliver.humanresourceapp.IncidentReportWarehouse</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

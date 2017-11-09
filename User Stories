@@ -1,0 +1,350 @@
+Create a prospect ->
+    enter information into console
+    create person with entered contact info,
+    add person to warehouse,
+    verify person is in the warehouse
+    information is populated into person
+
+Change prospects status during interview stage ->
+    enter information into console
+    infomation updates in person object
+
+Hire employee from prospect ->
+    enter information into console
+    populate employee fields (start date, salary, etc.)
+
+Terminate employee ->
+    enter information into console
+    populate former employee fields,
+    remove from current employee lists
+
+Promote employee ->
+    enter information into console
+    update job title, compensation
+
+Hire employee from new ->
+    enter information into console
+        create person with entered contact info,
+        add person to warehouse,
+        verify person is in the warehouse
+        information is populated into person
+
+//Employee record object - arraylist of [all employee fields], date stamp on each one,
+                every time a field is updated, a new entry is added to arraylist
+Update contact info ->
+    enter information into console
+    contact info updates
+
+Retrieve a record ->
+    enter id info
+    print all employment info
+
+Retrieve contact info ->
+    enter id info
+    print contact info
+
+Update employee's remaining PTO ->
+    subtract entered number of days used from PTO remaining
+
+Display employee's remaining PTO ->
+    print person's PTO remaining
+
+Update employee's max PTO for year ->
+    update PTO max
+    update PTO remaining
+
+Update employee's benefits ->
+    enter info into console
+    benefits fields are updated
+
+Print list of all people ->
+    all people are printed
+
+Print list of all prospects ->
+    all prospects are printed
+
+Print list of all employees ->
+    all employees are printed
+
+Print list of all terminated employees ->
+    all terminated employees are printed
+
+Batch updates (all previous methods applied to an arraylist)
+
+
+1) Print Welcome to Ranch Corp
+    1) "Prospect"
+        1) "Add new prospect"
+            1) ask for contact info
+                1) create contact info object
+                    1) person handler creates a person with that contact info, type PROSPECT, and returns that person
+                        1) print out created prospect
+        2) "Make changes to existing prospect"
+            1) Select by id
+                1) ask for id number
+                    1) person warehouse find by id with that id, returns that person
+                        1) Update contact info
+                            1) ask which field to update
+                                1) Name
+                                    1) ask for name
+                                        1) HrContactInfo set name
+                                2) Address
+                                    1) ask for address line 1, line 2, city, state, zip
+                                        1) create street address object with above info
+                                            1) HrContactInfo set street address
+                                3) phone number
+                                    1) ask for phone number
+                                        1) HrContactInfo set phone number
+                                4) email
+                                    1) ask for email
+                                        1) HrContactInfo set email
+                        2) Hire this person
+                            1) ask for hire date, salary, bonus, yearly PTO, if they get vision, if they get dental,
+                                if they get medical, if they get prescription, the % retirement matching
+                                1) person handler hire method with the parameters entered from above
+
+            2) Select by name
+                1) ask for name
+                    1) person warehouse find by name, returns an arraylist of people that match
+                        1) if multiple matches then select the person you want from the arraylist
+                            1) Update contact info
+                                1) ask which field to update
+                                    1) Name
+                                        1) ask for name
+                                            1) HrContactInfo set name
+                                    2) Address
+                                        1) ask for address line 1, line 2, city, state, zip
+                                            1) create street address object with above info
+                                                1) HrContactInfo set street address
+                                    3) phone number
+                                        1) ask for phone number
+                                            1) HrContactInfo set phone number
+                                    4) email
+                                        1) ask for email
+                                            1) HrContactInfo set email
+                            2) Hire this person
+                                1) ask for hire date, salary, bonus, yearly PTO, if they get vision, if they get dental,
+                                    if they get medical, if they get prescription, the % retirement matching
+                                    1) person handler hire method with the parameters entered from above
+    2) "Employees"
+        1) Hire new employee
+            1) ask for contact info
+                1) create contact info object
+                    1) person handler creates a person with that contact info, type EMPLOYEE, and returns that person
+                        1) print out created employee
+        2) Make changes to existing employee
+            1) Select by id
+                1) ask for id number
+                    1) person warehouse find by id with that id, returns that person
+                        1) Update contact info
+                            1) ask which field to update
+                                1) Name
+                                    1) ask for name
+                                        1) HrContactInfo set name
+                                2) Address
+                                    1) ask for address line 1, line 2, city, state, zip
+                                        1) create street address object with above info
+                                            1) HrContactInfo set street address
+                                3) phone number
+                                    1) ask for phone number
+                                        1) HrContactInfo set phone number
+                                4) email
+                                    1) ask for email
+                                        1) HrContactInfo set email
+                        2) Update medical choices
+                            1) ask for vision, dental, medical, prescription
+                                1) set fields in compensation
+                        3) promote employee
+                            1) ask for new job title, salary, bonus, yearly PTO
+                                1) person handler - promote employee
+                        4) terminate employee
+                            1) ask for termination date, reason for termination, exit interview
+                                2) person handler - terminate employee
+            2) Select by name
+                1) ask for name
+                    1) person warehouse find by name, returns an arraylist of people that match
+                        1) if multiple matches then select the person you want from the arraylist
+                            1) Update contact info
+                                1) ask which field to update
+                                    1) Name
+                                        1) ask for name
+                                            1) HrContactInfo set name
+                                    2) Address
+                                        1) ask for address line 1, line 2, city, state, zip
+                                            1) create street address object with above info
+                                                1) HrContactInfo set street address
+                                    3) phone number
+                                        1) ask for phone number
+                                            1) HrContactInfo set phone number
+                                    4) email
+                                        1) ask for email
+                                            1) HrContactInfo set email
+                            2) Update medical choices
+                                1) ask for vision, dental, medical, prescription
+                                    1) set fields in compensation
+                            3) promote employee
+                                1) ask for new job title, salary, bonus, yearly PTO
+                                    1) person handler - promote employee
+                            4) terminate employee
+                                1) ask for termination date, reason for termination, exit interview
+                                    2) person handler - terminate employee
+    3) "Print Reports"
+
+
+
+Main menu       -> displays:  ===== MainMenu =====
+                              Select option:
+                              [ PROSPECT ] [ EMPLOYEE ] [ REPORTING ] [ EXIT ]
+
+input prospect  -> displays:  No prospect selected
+                              ===== ProspectMenu =====
+                              Select option:
+                              [ ADD ] [ UPDATE ] [ CLEAR ] [ HOME ] [ EXIT ]
+
+input add       -> displays: Enter name: Katherine
+                             Enter address line 1: 999 mecine
+                             Enter address line 2: mcew
+                             Enter city: ecionw
+                             Enter state: os
+                             Enter zip code: 19292
+                             Enter phone number: 04097134
+                             Enter email address: dniwubx
+                             New prospect, Katherine, added with ID: 00000.
+                             Please add resume. Enter [Skip] to add one later.
+
+input resume    -> displays: Resume added
+                             Please update prospect score. Enter [Add] to do so now or [Skip] to do so later.
+
+input add       -> displays: Please enter score:
+
+input 80        -> displays: Selected prospect: Katherine
+                             ===== ProspectMenu =====
+                             Select option:
+                             [ ADD ] [ UPDATE ] [ CLEAR ] [ HOME ] [ EXIT ]
+
+input add       -> displays: Enter name: Phillip
+                             Enter address line 1: wcnoix
+                             Enter address line 2: wimx2
+                             Enter city: mceiwd3
+                             Enter state: meioc3
+                             Enter zip code: ieo192
+                             Enter phone number: 3283141
+                             Enter email address: cenwcuew
+                             New prospect, Phillip, added with ID: 00001.
+                             Please add resume. Enter [Skip] to add one later.
+
+input skip      -> displays: Resume addition skipped.
+                             Please update prospect score. Enter [Add] to do so now or [Skip] to do so later.
+
+input skip      -> displays: Score update skipped.
+                             Selected prospect: Phillip
+                             ===== ProspectMenu =====
+                             Select option:
+                             [ ADD ] [ UPDATE ] [ CLEAR ] [ HOME ] [ EXIT ]
+
+input update    -> displays: Pick [back] to return to the prospect menu.
+                             Selected:
+                             Phillip
+                             3283141
+                             cenwcuew
+                             wcnoix
+                             wimx2
+                             mceiwd3 meioc3, ieo192
+
+                             Employee ID:  00001
+                             Title:
+                             Employment Status:  PROSPECT
+                             Entrance Interview Date:  null
+                             Resume Abstract:
+                             Hire Date:  null
+                             Termination Date:  null
+                             Reason For Termination:
+                             Exit Interview Notes:
+                             Employee Score:  0.0
+
+                             Phillip's Compensation:
+
+
+                              Please pick a field to update:
+
+                -> should display the field options to select from
+                            [ HIRE ] [ SCORE ] [ RESUME ] [ ID ] [ INTERVIEW DATE ] [ NAME ] [ ADDRESS ] [ PHONE ] [ EMAIL ]
+
+                            case "hire" is empty
+
+input interview date    -> displays: Please enter new interview date in YYYY-MM-DD format.
+
+input 2013-09-12        -> displays: The new interview date is [2013-09-12].
+                                     Pick [back] to return to the prospect menu.
+                                     Selected:
+                                     Phillip
+                                     3283141
+                                     cenwcuew
+                                     wcnoix
+                                     wimx2
+                                     mceiwd3 meioc3, ieo192
+
+                                     Employee ID:  00001
+                                     Title:
+                                     Employment Status:  PROSPECT
+                                     Entrance Interview Date:  2013-09-12
+                                     Resume Abstract:
+                                     Hire Date:  null
+                                     Termination Date:  null
+                                     Reason For Termination:
+                                     Exit Interview Notes:
+                                     Employee Score:  0.0
+
+                                     Phillip's Compensation:
+
+
+                                      Please pick a field to update:
+
+input email             -> displays: Please enter new email address.
+
+input hello@hello.com   -> displays: The new email is [hello@hello.com].
+                                     Pick [back] to return to the prospect menu.
+                                     Selected:
+                                     Phillip
+                                     3283141
+                                     hello@hello.com
+                                     wcnoix
+                                     wimx2
+                                     mceiwd3 meioc3, ieo192
+
+                                     Employee ID:  00001
+                                     Title:
+                                     Employment Status:  PROSPECT
+                                     Entrance Interview Date:  2013-09-12
+                                     Resume Abstract:
+                                     Hire Date:  null
+                                     Termination Date:  null
+                                     Reason For Termination:
+                                     Exit Interview Notes:
+                                     Employee Score:  0.0
+
+                                     Phillip's Compensation:
+
+
+                                      Please pick a field to update:
+
+input back              -> displays: Selected prospect: Phillip
+                                     ===== ProspectMenu =====
+                                     Select option:
+                                     [ ADD ] [ UPDATE ] [ CLEAR ] [ HOME ] [ EXIT ]
+
+input home              -> displays: ===== MainMenu =====
+                                     Select option:
+                                     [ PROSPECT ] [ EMPLOYEE ] [ REPORTING ] [ EXIT ]
+
+input reporting         -> displays: ===== ReportingMenu =====
+                                     Select option:
+                                     [ ALL ] [ PROSPECT ] [ EMPLOYEE ] [ HOME ] [ EXIT ]
+                         -> should display [ INCIDENTS ] as well, then under incidents can add a new incident
+
+input all               -> displays: ===== ReportingMenu =====
+                                     Select option:
+                                     [ ALL ] [ PROSPECT ] [ EMPLOYEE ] [ HOME ] [ EXIT ]
+                         -> should display a report of all persons
+
+after terminate employee it should go back
